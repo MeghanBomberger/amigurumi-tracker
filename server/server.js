@@ -17,15 +17,13 @@ app.use(express.json())
 
 dotenv.config()
 
-console.log(process.env.PORT)
-
 app.use('/api/colors', apiRouterColors)
-app.use('/api/commissions', apiRouterCommissions)
+// app.use('/api/commissions', apiRouterCommissions)
 app.use('/api/crochethooks', apiRouterCrochetHooks)
-app.use('/api/designs', apiRouterDesigns)
+// app.use('/api/designs', apiRouterDesigns)
 app.use('/api/fandoms', apiRouterFandoms)
-app.use('/api/locations', apiRouterLocations)
-app.use('/api/stocklists', apiRouterStocklists)
+// app.use('/api/locations', apiRouterLocations)
+// app.use('/api/stocklists', apiRouterStocklists)
 app.use('/api/yarntypes', apiRouterYarnTypes)
 app.use('/api/yarnweights', apiRouterYarnWeights)
 
