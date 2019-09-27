@@ -35,4 +35,45 @@ fandomsdb.one = (id) => {
 	})
 }
 
+fandomsdb.create = (fandom) => {
+	return new Promise((resolve, reject) => {
+		pool.query(
+			'INSERT INTO fandoms (fandom) VALUES (?)',
+			[fandom],
+			(err, results) => {
+				if (err) {
+					return reject(err)
+				}
+				return resolve(results)
+			}
+		)
+	})
+}
+
+fandomsdb.update = (fandom, id) => {
+	return new Promise((resolve, reject) => {
+		pool.query(
+			'UPDATE fandoms SET fandom = ? WHERE id = ?',
+			[fandom, id],
+			(err, results) => {
+				if (err) {
+					return reject(err)
+				}
+				return resolve(results)
+			}
+		)
+	})
+}
+
+fandomsdb.delete = (id) => {
+	return new Promise((resolve, reject) => {
+		pool.query('DELETE FROM fandoms WHERE id = ?', [id], (err, results) => {
+			if (err) {
+				return reject(err)
+			}
+			return resolve(results)
+		})
+	})
+}
+
 module.exports = fandomsdb
