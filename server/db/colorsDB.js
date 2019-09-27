@@ -44,7 +44,7 @@ colorsdb.create = (colorName, colorSwatch, brandName) => {
 				if (err) {
 					return reject(err)
 				}
-				return resolve(results[0])
+				return resolve(results)
 			}
 		)
 	})
@@ -59,7 +59,7 @@ colorsdb.update = (colorName, colorSwatch, brandName, id) => {
 				if (err) {
 					return reject(err)
 				}
-				return resolve(results[0])
+				return resolve(results)
 			}
 		)
 	})
@@ -71,7 +71,7 @@ colorsdb.delete = (id) => {
 			if (err) {
 				return reject(err)
 			}
-			return resolve(results[0])
+			return resolve(results)
 		})
 	})
 }

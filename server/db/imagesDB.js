@@ -35,4 +35,45 @@ imagesdb.one = (id) => {
 	})
 }
 
+imagesdb.create = (imageName, imageFile) => {
+	return new Promise((resolve, reject) => {
+		pool.query(
+			'INSERT INTO images (imageName, imageFile) VALUES (?, ?)',
+			[imageName, imageFile],
+			(err, results) => {
+				if (err) {
+					return reject(err)
+				}
+				return resolve(results)
+			}
+		)
+	})
+}
+
+imagesdb.update = (imageName, imageFile, id) => {
+	return new Promise((resolve, reject) => {
+		pool.query(
+			'UPDATE images SET (imageName = ?, imageFile = ?) WHERE id = ?d',
+			[imageName, imageFile, id],
+			(err, results) => {
+				if (err) {
+					return reject(err)
+				}
+				return resolve(results)
+			}
+		)
+	})
+}
+
+imagesdb.delete = (id) => {
+	return new Promise((resolve, reject) => {
+		pool.query('DELETE FROM images WHERE id = ?', [id], (err, results) => {
+			if (err) {
+				return reject(err)
+			}
+			return resolve(results)
+		})
+	})
+}
+
 module.exports = imagesdb
