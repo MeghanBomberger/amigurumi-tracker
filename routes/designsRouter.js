@@ -42,15 +42,26 @@ router.get('/:id', async (req, res, next) => {
 			crochetHooks: JSON.parse(results.crochetHooks)
 		}
 		res.json(convertedResults)
-
 	} catch (e) {
 		console.log(e)
 		res.sendStatus(500)
-
 	}
 })
 
-//TODO create one
+//FIXME 
+router.post("/", async (req, res, next) => {
+	try {
+		let results = await db.create(
+			req.body.designName,
+			req.body.designNotes,
+			req.body.quantity
+		)
+	} catch (e) {
+		console.log(e)
+		res.sendStatus(500)
+	}
+})
+
 //TODO update one
 //TODO delete one
 

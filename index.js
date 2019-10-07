@@ -13,6 +13,11 @@ app.use(express.json())
 
 dotenv.config()
 
+app.use((req, res, next) => {
+	res.header('Access-Control-Allow-Origin', '*');
+	next();
+})
+
 app.use('/api/yarntypes', apiRouterYarnTypes)
 app.use('/api/yarnweights', apiRouterYarnWeights)
 app.use('/api/colors', apiRouterColors)

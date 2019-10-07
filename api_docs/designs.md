@@ -81,3 +81,25 @@ GET /api/designs/:id
     	}
 	]
 }
+```
+
+## CREATE
+
+### Request
+
+```http
+POST /api/designs
+```
+
+```json
+```json
+{
+	"designName": "Slender Man",
+	"designNotes": "Rewrite the lapel component",
+	"quantity": 3,
+	"colors": [4,5],
+	"crochetHooks": [6],
+	"fandoms": [8]
+}
+```
+

@@ -13,7 +13,7 @@ const pool = mysql.createPool({
 
 let designsdb = {}
 
-designsdb.all = (id) => {
+designsdb.all = () => {
 	return new Promise((resolve, reject) => {
 		pool.query(`
 			SELECT
@@ -133,9 +133,39 @@ designsdb.one = (id) => {
 	})
 }
 
+//FIXME
+designsdb.create = (designName, designNotes, quantity) => {
+	return new Promise((resolve, reject) => {
+		pool.query(
+			`INSERT INTO designs (designName, designNotes, quantity) VALUES (?, ?, ?)`,
+			[designName, designNotes, quantity],
+			(err, results) => {
+				if (err) {
+					return reject(err)
+				}
+				console.log(results)
+				return resolve(results)
+			}
+		)		
+	}).then(async (results, colors, crochetHooks, fandoms) => {
+		const designId = results.insertId
+		const valuesArray = []
+		const mapColorIds = await colors.map(color => {
+			valuesArray.push(designId, color)
+			return color
+		})
+		const mapHookIds = await crochetHooks.map(hook => {
+			valuesArray.push(designId, hook)
+			return hook
+		})
+		const mapFandom = await fandoms.map(fandom => {
+			valuesArray.push(designId, fandom)
+			return fandom
+		})
+		await console.log(valuesArray)
+	})
+}
 
-
-//TODO create one
 //TODO update one
 //TODO delete one
 
