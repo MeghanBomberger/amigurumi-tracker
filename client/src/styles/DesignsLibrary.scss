@@ -1,0 +1,49 @@
+@import '../variables.scss';
+
+.designs {
+	@include page-container;
+}
+
+.page-header.designs > .header-name {
+	font-family: 'Lobster Two', cursive;
+	font-size: 5vh;
+	color: rgb(0, 225, 255);
+	filter: drop-shadow(black 0 0 2pt) drop-shadow(rgb(0, 247, 255) 0 0 15px);
+	transition: 1s ease all;
+}
+
+.page-header.designs > .header-name.open {
+	color: transparent;
+	filter: none;
+}
+
+.page-container.designs {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.design-card-list-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	width: 90vw;
+}
+
+.design-nav-icon {
+	@include nav-icon;
+}
+
+.list-control-panel-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.design-card-list {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: flex-start;
+}
+

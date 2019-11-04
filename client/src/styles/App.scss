@@ -1,5 +1,10 @@
-.color-swatch {
-	height: 5vh;
-	width: calc(5vh);
-	border: 2px solid rgb(0, 0, 0);
+@import '../variables.scss';
+
+* {
+	margin: 0;
+}
+
+.app {
+	background: linear-gradient(#0f6be4, rgb(82, 9, 92));
+	min-height: 100vh;
 }

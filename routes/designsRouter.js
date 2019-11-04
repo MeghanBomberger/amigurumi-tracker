@@ -62,8 +62,8 @@ router.post("/", async (req, res, next) => {
 	}
 })
 
-//TODO update one
-//TODO delete one
-
+// create one
+// update one
+// delete one
 
 module.exports = router

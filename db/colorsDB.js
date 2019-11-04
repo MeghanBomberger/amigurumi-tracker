@@ -15,7 +15,23 @@ let colorsdb = {}
 
 colorsdb.all = () => {
 	return new Promise((resolve, reject) => {
-		pool.query(`SELECT * FROM colors`, (err, results) => {
+		pool.query(`
+			SELECT 
+				colors.id,
+				colors.colorName,
+				colors.colorSwatch,
+				colors.brandName,
+				colors.yarnTypeId,
+				colors.yarnWeightId,
+				yarntypes.yarnType,
+				yarnweights.weightNumber,
+				yarnweights.weightName
+			FROM colors
+				JOIN yarntypes 
+						ON yarntypes.id = colors.yarnTypeId
+				JOIN yarnweights
+						ON yarnweights.id = colors.yarnWeightId
+		`, (err, results) => {
 			if (err) {
 				return reject(err)
 			}
@@ -24,9 +40,26 @@ colorsdb.all = () => {
 	})
 }
 
-colorsdb.one = (id) => {
+colorsdb.one = (colorId) => {
 	return new Promise((resolve, reject) => {
-		pool.query('SELECT * FROM colors WHERE id = ?', [id], (err, results) => {
+		pool.query(`
+			SELECT 
+				colors.id,
+				colors.colorName,
+				colors.colorSwatch,
+				colors.brandName,
+				colors.yarnTypeId,
+				colors.yarnWeightId,
+				yarntypes.yarnType,
+				yarnweights.weightNumber,
+				yarnweights.weightName
+			FROM colors
+				JOIN yarntypes 
+					ON yarntypes.id = colors.yarnTypeId
+				JOIN yarnweights
+					ON yarnweights.id = colors.yarnWeightId
+			WHERE colors.id = ?
+		`, [colorId], (err, results) => {
 			if (err) {
 				return reject(err)
 			}
@@ -35,39 +68,78 @@ colorsdb.one = (id) => {
 	})
 }
 
-colorsdb.create = (colorName, colorSwatch, brandName) => {
+colorsdb.create = (
+	colorName,
+	colorSwatch,
+	brandName,
+	yarnTypeId,
+	yarnWeightId
+) => {
 	return new Promise((resolve, reject) => {
-		pool.query(
-			'INSERT INTO colors (colorName, colorSwatch, brandName) VALUES (?, ?, ?)',
-			[colorName, colorSwatch, brandName],
-			(err, results) => {
-				if (err) {
-					return reject(err)
-				}
-				return resolve(results)
+		pool.query (`
+			INSERT INTO colors (
+				colorName,
+				colorSwatch,
+				brandName,
+				yarnTypeId,
+				yarnWeightId
+			)
+			VALUES (?, ?, ?, ?, ?)
+		`,[
+			colorName,
+			colorSwatch,
+			brandName,
+			yarnTypeId,
+			yarnWeightId
+		], (err, results) => {
+			if (err) {
+				return reject(err)
 			}
-		)
+			return resolve(results)
+		})
 	})
 }
 
-colorsdb.update = (colorName, colorSwatch, brandName, id) => {
+colorsdb.update = (
+	colorName,
+	colorSwatch,
+	brandName,
+	yarnTypeId,
+	yarnWeightId,
+	colorId
+) => {
 	return new Promise((resolve, reject) => {
-		pool.query(
-			'UPDATE colors SET colorName = ?, colorSwatch = ?, brandName = ? WHERE id = ?',
-			[colorName, colorSwatch, brandName, id],
-			(err, results) => {
-				if (err) {
-					return reject(err)
-				}
-				return resolve(results)
+		pool.query(`
+			UPDATE colors
+			SET
+				colorName = ?,
+				colorSwatch = ?,
+				brandName = ?,
+				yarnTypeId = ?,
+				yarnWeightId = ?
+			WHERE id = ?
+		`,[
+			colorName,
+			colorSwatch,
+			brandName,
+			yarnTypeId,
+			yarnWeightId,
+			colorId
+		], (err, results) => {
+			if (err) {
+				return reject(err)
 			}
-		)
+			return resolve(results)
+		})
 	})
 }
 
-colorsdb.delete = (id) => {
+colorsdb.delete = (leadId) => {
 	return new Promise((resolve, reject) => {
-		pool.query('DELETE FROM colors WHERE id = ?', [id], (err, results) => {
+		pool.query(`
+			DELETE FROM colors
+			WHERE id = ?
+		`, [leadId], (err, results) => {
 			if (err) {
 				return reject(err)
 			}

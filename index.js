@@ -1,12 +1,12 @@
 const express = require('express')
-const dotenv = require('dotenv')
+const dotenv 	= require('dotenv')
 
+const apiRouterDesigns = require('./routes/designsRouter.js')
+const apiRouterColors = require('./routes/colorsRouter.js')
 const apiRouterYarnTypes = require('./routes/yarntypesRouter.js')
 const apiRouterYarnWeights = require('./routes/yarnweightsRouter.js')
-const apiRouterColors = require('./routes/colorsRouter.js')
 const apiRouterCrochetHooks = require('./routes/crochethooksRouter.js')
 const apiRouterFandoms = require('./routes/fandomsRouter.js')
-const apiRouterDesigns = require('./routes/designsRouter.js')
 
 const app = express()
 app.use(express.json())
