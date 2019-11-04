@@ -1,0 +1,98 @@
+@import '../variables.scss';
+
+.yarn-maker {
+	@include page-container;
+	@include center-v;
+}
+
+.example-container {
+	@include center-v;
+
+}
+
+.example-container > .yarn-example {
+	height: 30vh;
+	margin: 10vh 0 0 0;
+	padding: 10pt;
+	border-radius: 15pt;
+	background-color: white;
+	border: 3pt solid black;
+}
+
+.yarn-form {
+	@include center-v;
+	margin: 3vh 0 0 0;
+	padding: 0 0 5vh 0;
+}
+
+.yarn-form > select {
+	padding: 3pt 5pt 3pt 5pt;
+	border-radius: 15pt;
+	background-color: rgba(255, 255, 255, 0.25);
+	border: 2px rgba(255, 255, 255, 0.3) solid;
+	color: white;
+	text-transform: capitalize;
+	font-size: 9pt;
+}
+
+
+.yarn-option {
+	background-color: rgba(60, 9, 66, .85);
+	border-radius: 15pt;
+	text-transform: capitalize;
+}
+
+.color-square {
+	height: 10pt;
+	width: 10pt;
+}
+
+.yarn-form > label {
+	font-size: 10pt;
+	font-weight: 700;
+}
+
+.yarn-form > input {
+	font-size: 9pt;
+	background-color: rgba(255, 255, 255, 0.2);
+	color: white;
+	border: white 1px solid;
+	border-radius: 15pt;
+	text-align: center;
+	text-transform: capitalize;
+	padding: 1vh 0 1vh 0;
+}
+
+.yarn-form > table {
+	margin: 2vh 0 0 0;
+	font-size: 9pt;
+}
+
+.yarn-form > table th {
+	@include font-abel;
+	color: white;
+}
+
+.yarn-form > table td input {
+	font-size: 9pt;
+	background-color: rgba(255, 255, 255, 0.2);
+	color: white;
+	border: white 1px solid;
+	border-radius: 15pt;
+	text-align: center;
+	padding: 1vh 0 1vh 1.5vw;
+}
+
+.yarn-form > label {
+	@include font-abel;
+	margin: 1vh 0 0 0;
+	color: white;
+}
+
+.yarn-form > button {
+	margin: 3vh 0 0 0;
+	padding: 1vh 5vw 1vh 5vw;
+	background-color: rgb(55, 0, 128);
+	color: white;
+	border-radius: 15pt;
+}

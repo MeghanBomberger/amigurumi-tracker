@@ -1,0 +1,58 @@
+@import '../variables.scss';
+
+.control-panel-container {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 96vw;
+	height: 8vh;
+	padding: 0 2vw 0 2vw;
+}
+
+.menu-button-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.menu-button-bar {
+	height: 0.75vh;
+	width: calc(4vh);
+	border-radius: 10pt;
+	background-color: rgb(0, 225, 255);
+	margin: 0 0 0.5vh 0;
+	box-shadow: black 0 0 2pt, rgb(0, 247, 255) 0 0 15px;
+	transition: all ease 1s;
+}
+
+.menu-button-bar.open.one {
+	transform: rotate(-45deg);
+	margin: 1vh 0 0 0;
+}
+
+.menu-button-bar.open.two {
+	filter: opacity(0%);
+}
+
+.menu-button-bar.open.three {
+	transform: rotate(45deg);
+	margin: -2vh 0 0 0;
+	box-shadow: rgb(0, 247, 255) 0 0 15px;
+}
+
+.control-panel-options-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 84vw;
+}
+
+.control-panel-icon {
+	height: 3.5vh;
+	filter: invert(100%);
+}

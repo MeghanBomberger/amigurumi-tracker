@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css?family=Abel|Economica|Lobster+Two&display=swap');
+
+@mixin center-h {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+@mixin center-v {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+@mixin font-abel {
+	font-family: 'Abel', sans-serif;
+}
+
+@mixin font-lobster-two {
+	font-family: 'Lobster Two', cursive;
+}
+
+@mixin font-economica {
+	font-family: 'Economica', sans-serif;
+}
+
+@mixin nav-icon {
+	height: 4vh;
+}
+
+@mixin page-container {
+	min-height: 100vh;
+}
+
