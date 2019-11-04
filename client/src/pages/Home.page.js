@@ -14,18 +14,18 @@ const Home = () => {
 			<Link to="/designs">
 				<img alt="doll icon" className="nav-icon" src={DollIcon}/>
 			</Link>
-			<Link to="/bag">
+			{/* <Link to="/bag">
 				<img alt="bag icon" className="nav-icon" src={BagIcon} />
-			</Link>
-			<Link to="/stocklists">
+			</Link> */}
+			{/* <Link to="/stocklists">
 				<img alt="package icon" className="nav-icon" src={PackageIcon}/>
-			</Link>
-			<Link to="/commissions">
+			</Link> */}
+			{/* <Link to="/commissions">
 				<img alt="purchase icon" className="nav-icon" src={RetailIcon}/>
-			</Link>
-			<Link to="/fandoms">
+			</Link> */}
+			{/* <Link to="/fandoms">
 				<img alt="fandom icon" className="nav-icon" src={FandomIcon}/>
-			</Link>
+			</Link> */}
 			<Link to="/yarns">
 				<img alt="yarns icon" className="nav-icon" src={YarnBallsIcon}/>
 			</Link>

@@ -7,7 +7,7 @@ import MenuDotsEmpty from "../images/svg/menu.svg"
 
 
 export default function DesignCard (props) {
-	const [expanded, setExpanded] = React.useState(true)
+	const [expanded, setExpanded] = React.useState(false)
 	const [checked, setChecked] = React.useState(false)
 	const fandoms = props.fandoms
 	const colors = props.colors
